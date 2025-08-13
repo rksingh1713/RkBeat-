@@ -60,118 +60,21 @@ window.onscroll = () => {
   }
 }
 
-// Fix: Wait for DOMContentLoaded to ensure all elements exist before adding event listeners
-document.addEventListener('DOMContentLoaded', function() {
-  // PLAY MUSIC 
-  const playSong = document.getElementById("song");
-  var icon = document.getElementById("icon");
-  if (icon) {
-    icon.addEventListener("click", playMusic);
-  }
-  function playMusic() {
-    if (playSong.paused) {
-      playSong.play();
-      icon.src = "./assets/Image/pause.png";
-    } else {
-      playSong.pause();
-      icon.src = "./assets/Image/play.png";
-    }
-  }
+// PLAY MUSIC 
+const playSong = document.getElementById("song");
+var icon = document.getElementById("icon");
 
-  // Custom Audio Player Logic
-  const playBtn = document.getElementById("play-btn");
-  const playPauseIcon = document.getElementById("play-pause-icon");
-  const prevBtn = document.getElementById("prev-btn");
-  const nextBtn = document.getElementById("next-btn");
-  const progress = document.getElementById("audio-progress");
-  const currentTimeEl = document.getElementById("current-time");
-  const durationEl = document.getElementById("duration");
+icon.addEventListener("click", playMusic);
 
-  const songList = [
-    {src: './assets/Songs/khoya.mp3', img: './assets/Image/khoya.jpg', name: 'Khoya Sa', by: 'Kasyap'},
-    {src: './assets/Songs/I Like Me Better - Lauv.mp3', img: './assets/Image/ilikemebetter.png', name: 'I Like Me Better', by: 'Lauv'},
-    {src: './assets/Songs/mazaak.mp3', img: './assets/Image/mazaak.jpg', name: 'Mazaak', by: 'Anuv Jain'},
-    {src: './assets/Songs/betty.mp3', img: './assets/Image/betty.jpeg', name: 'Betty (Get Money)', by: 'Yung Gravy'},
-    {src: './assets/Songs/ghost.mp3', img: './assets/Image/ghost.jpg', name: 'Mary On A Cross', by: 'Ghost'},
-    {src: './assets/Songs/baraat.mp3', img: './assets/Image/baraat.jpeg', name: 'Baaraat', by: 'Unknown'},
-    {src: './assets/Songs/ishq.mp3', img: './assets/Image/ishq.jpg', name: 'Ishq Bulaava', by: 'Unknown'},
-    {src: './assets/Songs/katputli.mp3', img: './assets/Image/katputli.jpg', name: 'Katputli ke Dhage', by: 'Unknown'},
-    {src: './assets/Songs/you.mp3', img: './assets/Image/you.jpg', name: 'Tu/You', by: 'Unknown'},
-    {src: './assets/Songs/pal.mp3', img: './assets/Image/pal.jpg', name: 'Har Ek Pal', by: 'Unknown'},
-    {src: './assets/Songs/chand.mp3', img: './assets/Image/chand.jpg', name: 'Chand Baliyan', by: 'Unknown'},
-    {src: './assets/Songs/aisay.mp3', img: './assets/Image/aisay.jpeg', name: 'Aisay Kaisay', by: 'Unknown'}
-  ];
-  let currentSongIndex = 1;
-
-  function loadSong(index) {
-    const songData = songList[index];
-    playSong.src = songData.src;
-    document.getElementById('songName').innerText = songData.name;
-    document.getElementById('songBy').innerText = songData.by;
-    document.getElementById('banner').src = songData.img;
+function playMusic() {
+  if (playSong.paused) {
+    playSong.play();
+    icon.src = "./assets/Image/pause.png";
+  } else {
+    playSong.pause();
+    icon.src = "./assets/Image/play.png";
   }
-
-  function formatTime(sec) {
-    if (isNaN(sec)) return '00:00';
-    const m = Math.floor(sec / 60);
-    const s = Math.floor(sec % 60);
-    return `${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`;
-  }
-
-  if (playBtn) {
-    playBtn.addEventListener('click', function() {
-      if (playSong.paused) {
-        playSong.play();
-        playPauseIcon.src = './assets/Image/pause.png';
-      } else {
-        playSong.pause();
-        playPauseIcon.src = './assets/Image/play.png';
-      }
-    });
-  }
-
-  if (playSong) {
-    playSong.addEventListener('play', function() {
-      if (playPauseIcon) playPauseIcon.src = './assets/Image/pause.png';
-    });
-    playSong.addEventListener('pause', function() {
-      if (playPauseIcon) playPauseIcon.src = './assets/Image/play.png';
-    });
-    playSong.addEventListener('timeupdate', function() {
-      if (progress) progress.value = playSong.duration ? (playSong.currentTime / playSong.duration) * 100 : 0;
-      if (currentTimeEl) currentTimeEl.textContent = formatTime(playSong.currentTime);
-    });
-    playSong.addEventListener('loadedmetadata', function() {
-      if (durationEl) durationEl.textContent = formatTime(playSong.duration);
-    });
-  }
-
-  if (progress) {
-    progress.addEventListener('input', function() {
-      if (playSong.duration) {
-        playSong.currentTime = (progress.value / 100) * playSong.duration;
-      }
-    });
-  }
-
-  if (nextBtn) {
-    nextBtn.addEventListener('click', function() {
-      currentSongIndex = (currentSongIndex + 1) % songList.length;
-      loadSong(currentSongIndex);
-      playSong.play();
-    });
-  }
-  if (prevBtn) {
-    prevBtn.addEventListener('click', function() {
-      currentSongIndex = (currentSongIndex - 1 + songList.length) % songList.length;
-      loadSong(currentSongIndex);
-      playSong.play();
-    });
-  }
-
-  // Initial load
-  loadSong(currentSongIndex);
-});
+}
 
 // Move to Top button
 var moveTopBtn = document.getElementById("moveTopBtn");
@@ -350,9 +253,6 @@ buttons[11].addEventListener("click", () => {
   download.href = "./assets/Songs/aisay.mp3";
   aboutSong.innerText = "Music has the power to uplift your mood and also makes you feel  the warmth of emotions in the most memorable ways. 'Aisay Kaisay' was released in 2020.";
 });
-
-// Initial load
-loadSong(currentSongIndex);
 
 
 
