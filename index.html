@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0e1313" />
+  <link rel="manifest" href="./manifest.json">
+  <link rel="shortcut icon" href="./public/favicon.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" href="./public/apple-touch-icon.png">
+
+  <title id="title">SoundSculpt</title>
+
+  <!-- Import CSS File -->
+  <link rel="stylesheet" href="./CSS/style.css">
+  <link rel="stylesheet" href="./CSS/responsive.css">
+
+  <!-- Import Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+
+<body onload="preLoader()">
+
+  <div id="loading"></div>
+
+  <!-- Go to Up button -->
+  <button onclick="topFunction()" id="moveTopBtn" title="Go to top"><i class="fas fa-angle-up"></i></button>
+
+  <!-- Navbar  -->
+  <nav class="navbar">
+    <div class="content">
+      <div class="logo"><a href="#">SoundSculpt</a></div>
+      <ul class="menu-list">
+        <div class="icon cancel-btn">
+          <i class="fas fa-times"></i>
+        </div>
+        <li><a href="#play">Play Song</a></li>
+        <li><a href="#songs">Choose Song</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <div class="icon menu-btn">
+        <i class="fas fa-bars"></i>
+      </div>
+    </div>
+  </nav>
+
+  <div class="banner"></div>
+
+  <!-- PLAY PAGE -->
+  <section class="play" id="play">
+    <div class="container">
+      <div class="card">
+        <div class="card-body">
+          <div class="row">
+            <div class="left-col">
+              <h1 id="songName"> I Like Me Better </h1>
+              <h5>~<em id="songBy">Lauv</em></h5>
+            </div>
+            <div class="right-col">
+              <img src="./assets/Image/play.png" alt="play-button" id="icon">
+              <p>Click Here To Listen</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <audio id="song">
+        <source src="./assets/Songs/I Like Me Better - Lauv.mp3" type="audio/mp3">
+      </audio>
+    </div>
+  </section>
+
+  <!-- SELECT SONGS -->
+  <section class="songs" id="songs">
+    <div class="container">
+      <div class="songs-header">
+        <h2 class="title">Choose a song !!</h2>
+        <a class="play-song-btn" href="#play">Play Song</a>
+      </div>
+      <div class="btn-group">
+        <button type="button" class="btn"> Khoya Sa</button>
+        <button type="button" class="btn">I Like Me Better</button>
+        <button type="button" class="btn">Mazaak</button>
+        <button type="button" class="btn">Betty (Get Money)</button>
+        <button type="button" class="btn">Mary On A Cross</button>
+        <button type="button" class="btn">Baaraat</button>
+        <button type="button" class="btn">Ishq Bulaava</button>
+        <button type="button" class="btn">Katputli ke Dhage</button>
+        <button type="button" class="btn">Tu/You</button>
+        <button type="button" class="btn">Har Ek Pal</button>
+        <button type="button" class="btn">Chand Baliyan</button>
+        <button type="button" class="btn">Aisay Kaisay</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT SECTION -->
+  <section class="about" id="about">
+    <div class="container">
+      <div class="about-header">
+        <h2 class="title">About Song !!</h2>
+      </div>
+      <div class="about-content">
+        <div>
+          <p id="aboutSong">
+            "I Like Me Better" is a song recorded by American singer-songwriter Lauv. It was released on
+            May 19, 2017, and is included on Lauv's compilation album I Met You When I Was 18, which was
+            released on May 31, 2018. It has also been used in an Android Auto app commercial, in the
+            trailer of Netflix's romantic comedy To All the Boys I've Loved Before, and in the fall ball
+            episode of Netflix's comedy series The Expanding Universe of Ashley Garcia.
+          </p>
+          <a class="download-song" href="./assets/Songs/I Like Me Better - Lauv.mp3" id="download" download="Song.mp3">
+            Download Song
+          </a>
+        </div>
+        <div class="image-container">
+          <img src="./assets/Image/ilikemebetter.png" alt="song-banner" id="banner">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <h2 class="title">Connect with me on Social media</h2>
+    <div class="social-media">
+      <a href="https://www.instagram.com/__cynophilist__._/" target="_blank"><i class="fab fa-instagram"></i></a>
+
+      <a href="https://www.facebook.com/bhavya.khurana.399" target="_blank"><i class="fab fa-facebook"></i></a>
+
+      <a href="https://www.linkedin.com/in/bhavyakhurana24/" target="_blank"><i class="fab fa-linkedin"></i></a>
+
+      <a href="https://twitter.com/Bhavya06001699" target="_blank"><i class="fab fa-twitter"></i></a>
+
+      <a href="https://github.com/TheNewC0der-24" target="_blank"><i class="fab fa-github"></i></a>
+    </div>
+
+    <footer class="footer">
+      <p>© Design by <a href="https://bhavya-khurana.vercel.app/" target="_blank">Bhavya Khurana</a></p>
+      <p>Contributed by <a href="https://github.com/Jateeeen" target="_blank">Jatin</a></p>
+    </footer>
+  </section>
+
+  <!-- Import JS File -->
+  <script src="./JS/script.js"></script>
+  <script src="./RegisterServiceWorker.js"></script>
+
+</body>
+
+</html>
