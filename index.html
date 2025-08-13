@@ -15,14 +15,13 @@
   <!-- Import CSS File -->
   <link rel="stylesheet" href="./CSS/style.css">
   <link rel="stylesheet" href="./CSS/responsive.css">
+  <link rel="stylesheet" href="./CSS/audio-player.css">
 
   <!-- Import Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
 
 <body onload="preLoader()">
-
-  <div id="loading"></div>
 
   <!-- Go to Up button -->
   <button onclick="topFunction()" id="moveTopBtn" title="Go to top"><i class="fas fa-angle-up"></i></button>
@@ -59,8 +58,19 @@
               <h5>~<em id="songBy">Lauv</em></h5>
             </div>
             <div class="right-col">
-              <img src="./assets/Image/play.png" alt="play-button" id="icon">
-              <p>Click Here To Listen</p>
+              <!-- Custom Audio Player UI -->
+              <div class="audio-player">
+                <div class="audio-timeline">
+                  <span class="audio-time" id="current-time">00:00</span>
+                  <input type="range" id="audio-progress" class="audio-progress" value="0" min="0" max="100">
+                  <span class="audio-time" id="duration">00:00</span>
+                </div>
+                <div class="audio-controls">
+                  <button class="audio-btn prev" id="prev-btn" title="Previous"><span style="font-size:22px;color:#0e1313;">&#9198;</span></button>
+                  <button class="audio-btn play" id="play-btn" title="Play/Pause"><img src="./assets/Image/play.png" id="play-pause-icon" alt="play/pause"></button>
+                  <button class="audio-btn next" id="next-btn" title="Next"><span style="font-size:22px;color:#0e1313;">&#9197;</span></button>
+                </div>
+              </div>
             </div>
           </div>
         </div>
